@@ -8,7 +8,7 @@ spring:
       # 否则报错：Loading class `com.mysql.jdbc.Driver'. This is deprecated.
       driver-class-name: com.mysql.cj.jdbc.Driver
       #基本属性
-      url: jdbc:mysql://localhost:3306/iuap_pap?charset=utf8mb4&useSSL=false
+      url: jdbc:mysql://172.20.53.69:3306/iuap_pap?charset=utf8mb4&useSSL=false
       username: root
       password: root
       #配置初始化大小/最小/最大[仅用于测试，生成环境需要修改哦]
