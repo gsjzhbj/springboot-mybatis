@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(description = "用户接口")
+@Api(description = "学生接口")
 @RestController
 @Slf4j
 public class StuController {
@@ -22,7 +22,7 @@ public class StuController {
     @Autowired
     private StuService stuService;
 
-    @ApiOperation(value = "查询用户" ,  notes="查询全部用户")
+    @ApiOperation(value = "查询学生" ,  notes="查询全部学生")
     @GetMapping("/findAll")
     public List<Stu> findAll() {
         logger.debug("记录debug日志");
@@ -32,11 +32,13 @@ public class StuController {
         return stuService.findAll();
     }
 
+    @ApiOperation(value = "查询12岁学生" ,  notes="查询全部12岁学生")
     @GetMapping("/selectByExample")
     public List<Stu> selectByExample() {
         return stuService.selectByExample();
     }
 
+    @ApiOperation(value = "查询12岁学生" ,  notes="查询全部12岁学生，分页返回")
     @GetMapping("/selectByExampleWithPage")
     public PageInfo<Stu> selectByExampleWithPage(int pageNum, int pageSize) {
         return stuService.selectByExampleWithPage(pageNum, pageSize);
@@ -49,11 +51,13 @@ public class StuController {
      * @param address
      * @return
      */
+    @ApiOperation(value = "修改学生" ,  notes="修改学生地址信息")
     @PutMapping("/modify/{id}")
     public int modify(@PathVariable("id") int id, @RequestParam("address") String address) {
         return stuService.modify(id, address);
     }
 
+    @ApiOperation(value = "保存学生" ,  notes="保存学生信息")
     @GetMapping("/save")
     public int save() {
         return stuService.save();
