@@ -27,9 +27,17 @@ spring:
       test-while-idle: true
       #获取连接时候验证，会影响性能（不建议true）
       test-on-borrow: false
+      test-on-return: false
       #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
+      max-evictable-idle-time-millis: 720000
+      #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,log4j
+      #通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      #合并多个DruidDataSource的监控数据
+      useGlobalDataSourceStat: true
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
