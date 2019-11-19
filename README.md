@@ -2,3 +2,5 @@
 springboot2.x_demo
 
 springboot2 + mybatis + pagehelper
+
+db right.
