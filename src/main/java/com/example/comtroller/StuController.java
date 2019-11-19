@@ -3,12 +3,15 @@ package com.example.comtroller;
 import com.example.model.Stu;
 import com.example.service.StuService;
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(description = "用户接口")
 @RestController
 @Slf4j
 public class StuController {
@@ -17,6 +20,7 @@ public class StuController {
     @Autowired
     private StuService stuService;
 
+    @ApiOperation(value = "查询用户" ,  notes="查询全部用户")
     @GetMapping("/findAll")
     public List<Stu> findAll() {
 
